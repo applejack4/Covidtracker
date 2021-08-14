@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        init();
+        init();//just ot seegit commit works
 
         ApiInterface.geturlInterface().get_Country_data().enqueue(new Callback<ArrayList<CoronaModel>>() {
             @SuppressLint("SetTextI18n")
