@@ -1,5 +1,6 @@
 package com.example.covid_tracker;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -35,13 +36,14 @@ public class MainActivity extends AppCompatActivity {
         init();
 
         ApiInterface.geturlInterface().get_Country_data().enqueue(new Callback<ArrayList<CoronaModel>>() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(Call<ArrayList<CoronaModel>> call, Response<ArrayList<CoronaModel>> response) {
                 list = new ArrayList<>();
                 list.addAll(response.body());
+
                 String cn = getIntent().getStringExtra("Country_name");
                 Country_name.setText(cn);
-
                 for(int i = 0; i < list.size(); i++){
                  if(list.get(i).getCountry().equals(cn)){
                      Total_active.setText(list.get(i).getActive().toString());
