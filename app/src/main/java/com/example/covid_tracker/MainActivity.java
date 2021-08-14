@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<ArrayList<CoronaModel>> call, Response<ArrayList<CoronaModel>> response) {
                 list = new ArrayList<>();
                 list.addAll(response.body());
+                //to make a commit
 
                 String cn = getIntent().getStringExtra("Country_name");
                 Country_name.setText(cn);
